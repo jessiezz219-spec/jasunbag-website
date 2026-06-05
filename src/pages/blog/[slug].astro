@@ -1,12 +1,13 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-const content = {
-  "custom-jewelry-pouch-material-guide": "How to Choose the Right Fabric for Jewelry Pouches",
-  "cotton-vs-jute-drawstring-bags": "Cotton vs Jute Drawstring Bags for Eco-Friendly Gift Packaging",
-  "custom-bag-logo-options": "Logo Options for Custom Fabric Bags: Printing, Embroidery and Foil",
-};
 export function getStaticPaths() {
-  return Object.keys(content).map((slug) => ({ params: { slug }, props: { title: content[slug] } }));
+  const posts = [
+    ["custom-jewelry-pouch-material-guide", "How to Choose the Right Fabric for Jewelry Pouches"],
+    ["cotton-vs-jute-drawstring-bags", "Cotton vs Jute Drawstring Bags for Eco-Friendly Gift Packaging"],
+    ["custom-bag-logo-options", "Logo Options for Custom Fabric Bags: Printing, Embroidery and Foil"],
+  ];
+
+  return posts.map(([slug, title]) => ({ params: { slug }, props: { title } }));
 }
 const { title } = Astro.props;
 ---
