@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+---
+<BaseLayout title="About JasunBag | Custom Gift Bags Manufacturer in Shenzhen" description="JasunBag is a custom gift bags and textile packaging supplier built on Shenzhen Jasun Packaging's manufacturing experience since 2013.">
+  <section class="page-hero">
+    <p class="eyebrow">About us</p>
+    <h1>Your strategic partner in global packaging solutions.</h1>
+    <p>{site.name} is the bag-focused brand of {site.legalName}, serving importers, wholesalers and brand owners who need reliable custom packaging bags at scale.</p>
+  </section>
+  <section class="section split">
+    <img src="/assets/production-flow.jpg" alt="Custom bag production process cutting printing sewing inspection" />
+    <div>
+      <p class="eyebrow">Factory profile</p>
+      <h2>From export packaging experience to specialized custom bag production.</h2>
+      <p>Founded in Shenzhen in {site.since}, Jasun Packaging developed from paper packaging into a broader packaging supplier. JasunBag focuses that experience on cotton bags, jewelry pouches, jute pouches, satin bags, velvet pouches, tote bags and washable kraft paper bags.</p>
+    </div>
+  </section>
+</BaseLayout>

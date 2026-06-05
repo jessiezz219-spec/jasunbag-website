@@ -1,0 +1,16 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { logoOptions } from "../data/products";
+---
+<BaseLayout title="Customization Services | Custom Logo, Material and Packaging Options" description="Custom bag services including screen printing, foil stamping, embroidery, embossing, woven labels, custom materials, sizes, ropes, ribbons and packing.">
+  <section class="page-hero">
+    <p class="eyebrow">Customization services</p>
+    <h1>Custom logo, material, size and packing support.</h1>
+    <p>We help buyers turn a reference pouch or packaging idea into a production-ready specification.</p>
+  </section>
+  <section class="section">
+    <div class="option-grid">
+      {logoOptions.map((item) => <div class="tile"><h3>{item}</h3><p>Used for custom gift bags, jewelry pouches, cosmetic bags and promotional textile packaging.</p></div>)}
+    </div>
+  </section>
+</BaseLayout>

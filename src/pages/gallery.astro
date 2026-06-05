@@ -1,0 +1,16 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { categories } from "../data/products";
+---
+<BaseLayout title="Custom Bag Gallery | Gift Bags, Jewelry Pouches and Logo Packaging" description="Gallery of custom gift bags, jewelry pouches, tote bags, drawstring bags and washable kraft paper bags for B2B packaging buyers.">
+  <section class="page-hero">
+    <p class="eyebrow">Gallery</p>
+    <h1>Custom bag examples by material and application.</h1>
+    <p>Use this gallery as a starting point for your RFQ. Send reference images, size and logo artwork for quotation.</p>
+  </section>
+  <section class="section">
+    <div class="product-grid">
+      {categories.map((item) => <article class="card"><img src={item.image} alt={`${item.title} custom bag sample gallery`} /><div class="card-body"><h3>{item.title}</h3><p>{item.description}</p></div></article>)}
+    </div>
+  </section>
+</BaseLayout>

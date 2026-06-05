@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { categories } from "../../data/products";
+import { site } from "../../data/site";
+---
+<BaseLayout title="Custom Gift Bags Product Center | Wholesale Fabric Pouches with Logo" description="Browse custom gift bags by material and application: cotton, canvas, velvet, microfiber, jute, satin, jewelry pouches, cosmetic bags, tote bags and washable kraft paper bags.">
+  <section class="page-hero">
+    <p class="eyebrow">Products</p>
+    <h1>Custom gift bags and textile packaging categories.</h1>
+    <p>Browse by material and use case. Each category supports custom size, color, logo process, closure and packing. MOQ starts from {site.moq}.</p>
+  </section>
+  <section class="section">
+    <div class="product-grid">
+      {categories.map((item) => (
+        <article class="card">
+          <img src={item.image} alt={`${item.title} custom wholesale gift bags with logo`} />
+          <div class="card-body">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+            <div class="tag-row">{item.keywords.slice(0, 2).map((kw) => <span>{kw}</span>)}</div>
+            <div class="actions"><a class="btn secondary" href={`/products/${item.slug}/`}>View More</a><a class="btn" href="/contact/">Get Latest Price</a></div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

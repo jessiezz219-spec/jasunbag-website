@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const posts = [
+  ["How to Choose the Right Fabric for Jewelry Pouches", "custom-jewelry-pouch-material-guide"],
+  ["Cotton vs Jute Drawstring Bags for Eco-Friendly Gift Packaging", "cotton-vs-jute-drawstring-bags"],
+  ["Logo Options for Custom Fabric Bags: Printing, Embroidery and Foil", "custom-bag-logo-options"],
+];
+---
+<BaseLayout title="Custom Gift Bag Blog | Packaging Material and Logo Guides" description="Buyer guides for custom gift bags, jewelry pouches, logo processes, materials and wholesale packaging sourcing.">
+  <section class="page-hero">
+    <p class="eyebrow">Blog</p>
+    <h1>Packaging sourcing guides for B2B buyers.</h1>
+    <p>Long-tail SEO content for material choice, logo process and custom packaging decisions.</p>
+  </section>
+  <section class="section">
+    <div class="grid-3">
+      {posts.map(([title, slug]) => <a class="tile" href={`/blog/${slug}/`}><h3>{title}</h3><p>Read buyer guide</p></a>)}
+    </div>
+  </section>
+</BaseLayout>

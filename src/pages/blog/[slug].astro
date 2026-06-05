@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const content = {
+  "custom-jewelry-pouch-material-guide": "How to Choose the Right Fabric for Jewelry Pouches",
+  "cotton-vs-jute-drawstring-bags": "Cotton vs Jute Drawstring Bags for Eco-Friendly Gift Packaging",
+  "custom-bag-logo-options": "Logo Options for Custom Fabric Bags: Printing, Embroidery and Foil",
+};
+export function getStaticPaths() {
+  return Object.keys(content).map((slug) => ({ params: { slug }, props: { title: content[slug] } }));
+}
+const { title } = Astro.props;
+---
+<BaseLayout title={`${title} | JasunBag`} description={`${title}. Practical B2B sourcing guide from JasunBag custom gift bags manufacturer.`}>
+  <section class="page-hero">
+    <p class="eyebrow">Buyer guide</p>
+    <h1>{title}</h1>
+    <p>Use this guide as a starting point when preparing a custom gift bag or jewelry pouch RFQ.</p>
+  </section>
+  <section class="section">
+    <div class="tile">
+      <h2>Key considerations</h2>
+      <p>For B2B custom packaging, buyers should confirm material, size, logo process, MOQ, packing method, sample requirements and destination country before requesting a quotation.</p>
+      <p>JasunBag supports cotton, jute, velvet, satin, microfiber, washable kraft paper and reusable tote bag packaging for jewelry, cosmetics, retail and promotional applications.</p>
+      <div class="actions"><a class="btn" href="/contact/">Request a Quote</a></div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,161 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { categories, logoOptions } from "../data/products";
+import { site } from "../data/site";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      name: site.name,
+      legalName: site.legalName,
+      email: site.email,
+      telephone: site.whatsapp,
+      address: { "@type": "PostalAddress", addressLocality: "Shenzhen", addressRegion: "Guangdong", addressCountry: "CN" },
+      url: "https://www.jasunbag.com",
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "What is your MOQ for custom gift bags?",
+          acceptedAnswer: { "@type": "Answer", text: `Most custom styles start from ${site.moq}, depending on material, size and logo process.` },
+        },
+        {
+          "@type": "Question",
+          name: "Can I customize the logo?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes. We support screen printing, heat transfer, embroidery, foil stamping, embossing and woven labels for selected materials." },
+        },
+      ],
+    },
+  ],
+};
+---
+<BaseLayout schema={schema}>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Custom gift bags manufacturer</p>
+      <h1>JasunBag: Custom Gift Bags & Jewelry Pouches Since 2013</h1>
+      <p>Factory-direct wholesale supply for cotton, velvet, jute, satin, microfiber and washable kraft paper bags with custom logo. Built for jewelry, beauty, retail and promotional packaging buyers.</p>
+      <div class="actions">
+        <a class="btn" href="/contact/">Get a Free Quote</a>
+        <a class="btn secondary" href="/products/">Explore Catalog</a>
+      </div>
+    </div>
+  </section>
+  <section class="stats">
+    <div><strong>{site.since}</strong>Packaging experience</div>
+    <div><strong>{site.moq}</strong>Low MOQ custom orders</div>
+    <div><strong>OEM/ODM</strong>Fabric bags factory</div>
+    <div><strong>Global</strong>US, Europe, Australia supply</div>
+  </section>
+
+  <section class="section">
+    <div class="center-title">
+      <p class="eyebrow">Why choose us</p>
+      <h2>What you get with JasunBag</h2>
+      <p>Practical production support for B2B buyers who care about material quality, logo accuracy, pricing and repeatable supply.</p>
+    </div>
+    <div class="grid-3">
+      <div class="tile icon-tile"><span>01</span><h3>Material Options</h3><p>Cotton, canvas, jute, velvet, satin, microfiber, Tyvek and washable kraft paper for different brand positions.</p></div>
+      <div class="tile icon-tile"><span>02</span><h3>Full Customization</h3><p>Size, color, rope, ribbon, lining, handle, snap button, label and logo process can be adjusted by project.</p></div>
+      <div class="tile icon-tile"><span>03</span><h3>Logo Techniques</h3><p>Screen printing, embroidery, woven label, foil stamping, embossing and debossing on selected materials.</p></div>
+      <div class="tile icon-tile"><span>04</span><h3>Factory-Direct Pricing</h3><p>Quote by material, size, quantity and logo method so buyers can compare practical production options.</p></div>
+      <div class="tile icon-tile"><span>05</span><h3>Sample Support</h3><p>Confirm the fabric, logo position, closure and sewing details before bulk production.</p></div>
+      <div class="tile icon-tile"><span>06</span><h3>Export Packing</h3><p>Bulk cartons, inner bags, shipping marks and packing details for importers and distributors.</p></div>
+    </div>
+  </section>
+
+  <section class="section band split">
+    <img src="/assets/production-flow.jpg" alt="Custom bag production process cutting printing sewing inspection" />
+    <div>
+      <p class="eyebrow">Our expertise</p>
+      <h2>Craftsmanship meets practical production control.</h2>
+      <p>From fabric cutting and logo printing to sewing, trimming, drawstring fitting and inspection, we focus on the small details that affect the final packaging presentation.</p>
+      <div class="check-list">
+        <p><strong>Advanced production lines</strong><br />Equipment and workers arranged around repeatable custom pouch and bag orders.</p>
+        <p><strong>Professional design support</strong><br />Artwork, logo method and material choices are reviewed before sampling.</p>
+        <p><strong>Reliable lead time</strong><br />Production planning and export packing support for wholesale buyers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="center-title">
+      <p class="eyebrow">Customization journey</p>
+      <h2>Your custom packaging project starts here</h2>
+      <p>A clear RFQ process helps reduce back-and-forth before sampling and bulk production.</p>
+    </div>
+    <div class="grid-4">
+      <div class="tile step-tile"><span>Step 1</span><h3>Consultation</h3><p>Send bag type, size, material, logo artwork, quantity and destination market.</p></div>
+      <div class="tile step-tile"><span>Step 2</span><h3>Design & Sample</h3><p>Confirm fabric, color, logo process, closure and packing requirements.</p></div>
+      <div class="tile step-tile"><span>Step 3</span><h3>Bulk Production</h3><p>Start production after sample approval and final quotation confirmation.</p></div>
+      <div class="tile step-tile"><span>Step 4</span><h3>Inspection & Delivery</h3><p>Check logo, stitching, packing and shipping marks before dispatch.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="eyebrow">Product center</p>
+    <h2>Source by material, application and logo process.</h2>
+    <div class="product-grid">
+      {categories.slice(0, 8).map((item) => (
+        <article class="card">
+          <img src={item.image} alt={`${item.title} wholesale custom packaging bags`} />
+          <div class="card-body">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+            <div class="tag-row"><span>MOQ {site.moq}</span><span>Custom logo</span></div>
+            <div class="actions"><a class="btn secondary" href={`/products/${item.slug}/`}>View More</a></div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+  <section class="section band">
+    <p class="eyebrow">Customization services</p>
+    <h2>Make your packaging recognizable before buyers open the product.</h2>
+    <div class="option-grid">
+      {logoOptions.map((option) => <div class="tile"><h3>{option}</h3><p>Available on selected cotton, jute, velvet, microfiber, satin and kraft paper bag styles.</p></div>)}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="center-title">
+      <p class="eyebrow">FAQ</p>
+      <h2>Frequently asked questions</h2>
+      <p>Everything buyers usually need to know before sending a custom bag RFQ.</p>
+    </div>
+    <div class="grid-3">
+      <div class="tile"><h3>What is your minimum order quantity?</h3><p>Most custom styles start from {site.moq}. Exact MOQ may depend on material, color and logo method.</p></div>
+      <div class="tile"><h3>Can I get a custom sample?</h3><p>Yes. We can make samples after confirming size, material, logo artwork and sample cost.</p></div>
+      <div class="tile"><h3>What materials do you offer?</h3><p>Cotton, canvas, jute, velvet, satin, microfiber, Tyvek and washable kraft paper.</p></div>
+      <div class="tile"><h3>Do you offer wholesale shipping?</h3><p>Yes. We support export packing and shipment communication for buyers in the US, Europe and Australia.</p></div>
+      <div class="tile"><h3>How long does production take?</h3><p>Lead time depends on quantity, material and logo process. We quote it after reviewing your RFQ.</p></div>
+      <div class="tile"><h3>Can you help with artwork?</h3><p>Yes. We review logo artwork and can advise the most practical logo method for your material.</p></div>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="center-title">
+      <p class="eyebrow">Packaging tips</p>
+      <h2>Latest buyer guides</h2>
+      <p>SEO-friendly sourcing content that helps buyers compare materials, logo methods and applications.</p>
+    </div>
+    <div class="grid-3">
+      <a class="card" href="/blog/custom-jewelry-pouch-material-guide/"><img src="/assets/jewelry-pouch-banner.jpg" alt="Custom jewelry pouch material guide" /><div class="card-body"><h3>How to choose the right fabric for jewelry pouches</h3><p>Compare microfiber, velvet, satin and leather-look finishes.</p></div></a>
+      <a class="card" href="/blog/cotton-vs-jute-drawstring-bags/"><img src="/assets/products/jute-drawstring-coffee.jpg" alt="Cotton vs jute drawstring bags" /><div class="card-body"><h3>Cotton vs jute drawstring bags</h3><p>Choose the right natural material for eco-friendly gift packaging.</p></div></a>
+      <a class="card" href="/blog/custom-bag-logo-options/"><img src="/assets/hero-banner.jpg" alt="Custom bag logo options" /><div class="card-body"><h3>Logo options for custom fabric bags</h3><p>Printing, embroidery, foil stamping, embossing and woven labels.</p></div></a>
+    </div>
+  </section>
+
+  <section class="section final-cta">
+    <div>
+      <p class="eyebrow">Ready to elevate your brand packaging?</p>
+      <h2>Send your artwork, size and quantity for a quotation.</h2>
+      <p>Our team will recommend practical material and logo options for your packaging project.</p>
+      <div class="actions"><a class="btn" href="/contact/">Request a Quote</a><a class="btn secondary" href="/products/">View Catalog</a></div>
+    </div>
+  </section>
+</BaseLayout>

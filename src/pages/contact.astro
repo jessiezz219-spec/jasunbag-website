@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+---
+<BaseLayout title="Contact JasunBag | Request Wholesale Price for Custom Gift Bags" description="Send your custom gift bag RFQ with product type, material, size, logo process, quantity, destination country and artwork reference.">
+  <section class="page-hero">
+    <p class="eyebrow">Contact us</p>
+    <h1>Request wholesale pricing for your custom bag project.</h1>
+    <p>Email: {site.email} | WhatsApp: {site.whatsapp}. Business email preferred for B2B quotations.</p>
+  </section>
+  <section class="section band">
+    <form class="form" action={`mailto:${site.email}`} method="post" enctype="text/plain">
+      <label>Full Name<input name="Full Name" required /></label>
+      <label>Work Email<input name="Work Email" type="email" required /></label>
+      <label>WhatsApp / Phone<input name="Phone" /></label>
+      <label>Product of Interest<input name="Product" placeholder="Paste product link or category" /></label>
+      <label>Order Quantity<input name="Quantity" placeholder="e.g. 3000 pcs/style" /></label>
+      <label>Country / Region<input name="Country" placeholder="e.g. USA, Germany, Australia" /></label>
+      <label class="full">Customization Details<textarea name="Details" rows="6" placeholder="Size, material, logo process, color, packing request, delivery date..."></textarea></label>
+      <button class="btn full" type="submit">Submit RFQ</button>
+    </form>
+  </section>
+</BaseLayout>

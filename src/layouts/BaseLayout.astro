@@ -1,0 +1,65 @@
+---
+import { site, nav } from "../data/site";
+
+const {
+  title = "Custom Gift Bags & Jewelry Pouches Manufacturer | Wholesale Bulk Supply",
+  description = "Leading B2B supplier of custom gift bags, specializing in cotton, velvet, jute and jewelry pouches with logo. Factory direct wholesale, low MOQ and global shipping.",
+  canonical,
+  schema,
+} = Astro.props;
+
+const canonicalUrl = canonical ? new URL(canonical, Astro.site).toString() : new URL(Astro.url.pathname, Astro.site).toString();
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" href="/assets/jasunbag-logo.png" />
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+    <link rel="stylesheet" href="/src/styles/global.css" />
+  </head>
+  <body>
+    <div class="topbar">
+      <span>Custom bags since {site.since}</span>
+      <span>MOQ {site.moq}</span>
+      <span>OEM/ODM fabric bags factory</span>
+    </div>
+    <header class="header">
+      <a class="brand" href="/"><img src="/assets/jasunbag-logo.png" alt="JasunBag custom gift bags manufacturer logo" /></a>
+      <nav aria-label="Primary navigation">
+        {nav.map(([label, href]) => <a href={href}>{label}</a>)}
+      </nav>
+      <a class="quote" href="/contact/">Get a Free Quote</a>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="footer">
+      <div>
+        <h3>{site.name}</h3>
+        <p>Custom gift bags, jewelry pouches and textile packaging for B2B buyers.</p>
+      </div>
+      <div>
+        <strong>Products</strong>
+        <a href="/products/cotton-canvas-bags/">Cotton Bags</a>
+        <a href="/products/velvet-microfiber-pouches/">Velvet Pouches</a>
+        <a href="/products/jewelry-packaging/">Jewelry Packaging</a>
+      </div>
+      <div>
+        <strong>Company</strong>
+        <a href="/about/">About Us</a>
+        <a href="/customization/">Customization</a>
+        <a href="/sustainability/">Sustainability</a>
+      </div>
+      <div>
+        <strong>Contact</strong>
+        <span>{site.email}</span>
+        <span>WhatsApp: {site.whatsapp}</span>
+      </div>
+    </footer>
+  </body>
+</html>
