@@ -1,5 +1,6 @@
 ---
 import { site, nav } from "../data/site";
+import "../styles/global.css";
 
 const {
   title = "Custom Gift Bags & Jewelry Pouches Manufacturer | Wholesale Bulk Supply",
@@ -20,7 +21,6 @@ const canonicalUrl = canonical ? new URL(canonical, Astro.site).toString() : new
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" href="/assets/jasunbag-logo.png" />
     {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
-    <link rel="stylesheet" href="/src/styles/global.css" />
   </head>
   <body>
     <div class="topbar">
